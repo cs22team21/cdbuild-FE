@@ -2,7 +2,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_START,
   LOGIN_FAILURE
-} from "../actions/loginActions";
+} from "../actions/loginAction";
 
 const initialState = {
   loggingIn: false,
