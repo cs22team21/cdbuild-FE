@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
+import Controls from './gameControls';
+
 const Game = props => {
   const [user, setUser] = useState();
 
@@ -43,8 +45,8 @@ const Game = props => {
         <h2>Hello World</h2>
       </div>
       <div className="right">
-        {/* <Info user={user} />
-        <Inputs moveDirection={moveDirection} /> */}
+        {/* <Info user={user} /> */}
+        <Controls moveDirection={moveDirection} />
       </div>
     </React.Fragment>
   );
