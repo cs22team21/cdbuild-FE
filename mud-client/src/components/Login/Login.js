@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 
 const Login = props => {
@@ -31,18 +32,28 @@ const Login = props => {
     if (isRegister) {
       endpoint = `${props.backendUrl}/api/registration/`;
       creds = { username: username, password1: password, password2: password1 };
+      return axios
+        .post(`${endpoint}`, creds, { "Content-Type": "application/json" })
+        .then(res => {
+          localStorage.setItem("key", res.data.key)
+          props.history.push('/login')
+        });
     } else {
       endpoint = `${props.backendUrl}/api/login/`;
       creds = { username: username, password: password };
+      return axios
+        .post(`${endpoint}`, creds, { "Content-Type": "application/json" })
+        .then(res => {
+          localStorage.setItem("key", res.data.key)
+          props.history.push('/game')
+        })
+        .catch(err => {
+          console.log(err.response)
+        });
     }
-    axios
-      .post(`${endpoint}`, creds, { "Content-Type": "application/json" })
-      .then(res => {
-        localStorage.setItem("key", res.data.key);
-        // props.toggleLogin();
-      });
   }
-  console.log(props)
+  
+  console.log(props);
 
   return (
     <React.Fragment>
@@ -79,6 +90,6 @@ const Login = props => {
       </section>
     </React.Fragment>
   );
-}
+};
 
-export default Login;
+export default withRouter(Login);
