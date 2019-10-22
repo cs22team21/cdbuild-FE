@@ -1,19 +1,40 @@
-import React from 'react';
-import './App.css';
+import React, { useState, useEffect } from "react";
+// import "./App.scss";
 import { Switch, Route } from 'react-router-dom';
-import Login from './components/Login/Login';
-import Register from './components/Register/Register';
-import PrivateRoute from './helper/PrivateRoute';
-//  import the game path when it's created
+import Login from "./components/Login/Login";
+import Game from "./components/Game/Game";
 
 function App() {
+  const [logIn, setLogIn] = useState(!!localStorage.getItem("key"));
+  const [backendUrl] = useState("https://lambda-mud-test.herokuapp.com");
+
+  useEffect(() => {
+    if (localStorage.getItem("key")) {
+      setLogIn(true);
+    } else {
+      setLogIn(false);
+    }
+  }, []);
+  function setLocalKey() {
+    if (localStorage.getItem("key")) {
+      setLogIn(true);
+    } else {
+      setLogIn(false);
+    }
+  }
   return (
     <div className="App">
-      <Switch>
-        <Route path='/login' component={Login} />
-        <Route path='/register' component={Register} />
-        {/* <PrivateRoute path='/' component={Game} /> */}
-      </Switch>
+      <h2>SciFi Time</h2>
+      <div className="container">
+        <Switch>
+        <Route path = '/login' 
+        render={props => <Login {...props} backendUrl={backendUrl} logIn={logIn} setLocalKey={setLocalKey} />}
+        />
+        <Route path = '/game' 
+         render={props => <Game {...props} backendUrl={backendUrl} login={logIn}/>}
+         />
+        </Switch>
+      </div>
     </div>
   );
 }
