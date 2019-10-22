@@ -1,53 +1,53 @@
-import React from "react";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-import { init, getRooms } from "../../actions/gameActions";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-class Game extends React.Component {
-  componentDidMount() {
-    this.props.init();
-    this.props.getRooms();
+const Game = props => {
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const auth = `Token ${localStorage.getItem("key")}`;
+    const options = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: auth
+      }
+    };
+    console.log(options);
+    axios.get(`${props.backendUrl}/api/adv/init/`, options).then(res => {
+      setUser(res.data);
+      console.log('resData', res.data)
+    });
+  }, [props.logIn, props.backendUrl]);
+
+  function moveDirection(direction) {
+    const auth = `Token ${localStorage.getItem("key")}`;
+    const options = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: auth
+      }
+    };
+    console.log(direction);
+    axios
+      .post(`${props.backendUrl}/api/adv/move/`, { direction }, options)
+      .then(res => {
+        setUser(res.data);
+      });
   }
-  //   const [user, setUser] = useState();
 
-  //   useEffect(() => {
-  //     const auth = `Token ${localStorage.getItem("key")}`
-  //     console.log(auth)
-  //     axios
-  //       .get("https://lambda-mud-test.herokuapp.com/api/adv/init/")
-  //       .then(res => {
-  //         console.log(res.data);
-  //         setUser(localStorage.setItem("token", res.data));
-  //       })
-  //       .catch(err => err.response);
-  //   }, []);
+  console.log('user', user);
+  const mapInfo = user ? user.room_id : 0;
+  return (
+    <React.Fragment>
+      <div className="left">
+        <h2>Hello World</h2>
+      </div>
+      <div className="right">
+        {/* <Info user={user} />
+        <Inputs moveDirection={moveDirection} /> */}
+      </div>
+    </React.Fragment>
+  );
+};
 
-  render() {
-    return <h1>Hello World</h1>;
-  }
-}
-
-const mapStateToProps = ({
-  error,
-  uuid,
-  name,
-  title,
-  description,
-  players,
-  rooms
-}) => ({
-  error,
-  uuid,
-  name,
-  title,
-  description,
-  players,
-  rooms
-});
-
-export default withRouter(
-  connect(
-    mapStateToProps,
-    { init, getRooms }
-  )(Game)
-);
+export default Game;

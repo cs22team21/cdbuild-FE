@@ -7,7 +7,7 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START });
   return axios
-    .post("https://lambda-mud-test.herokuapp.com/api/login/", creds)
+    .post("https://mud-js.herokuapp.com/api/login/", creds)
     .then(res => {
       localStorage.setItem("token", res.data.key);
       dispatch({ type: LOGIN_SUCCESS, payload: res.data.key });

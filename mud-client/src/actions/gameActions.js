@@ -7,10 +7,10 @@ export const INIT_FAILURE = "INIT_FAILURE";
 export const init = () => dispatch => {
   dispatch({ type: INIT_START });
   return axios
-    .get("https://lambda-mud-test.herokuapp.com/api/adv/init/")
+    .get("https://mud-js.herokuapp.com/api/adv/init/")
     .then(res => {
       console.log('init', res.data);
-      localStorage.setItem("token", res.data);
+    //   localStorage.setItem("token", res.data);
       dispatch({ type: INIT_SUCCESS, payload: res.data });
     })
     .catch(err => {
@@ -33,7 +33,7 @@ export const getRooms = () => dispatch => {
     .get("https://lambda-mud-test.herokuapp.com/api/adv/rooms/")
     .then(res => {
       console.log('rooms', res.data);
-      localStorage.setItem("token", res.data);
+    //   localStorage.setItem("token", res.data);
       dispatch({ type: GET_ROOMS_SUCCESS, payload: res.data });
     })
     .catch(err => {

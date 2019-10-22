@@ -7,7 +7,7 @@ export const REGISTER_FAILURE = 'REGISTER_FAILURE';
 export const register = creds => dispatch => {
   dispatch({ type: REGISTER_START });
   return axios
-    .post('https://lambda-mud-test.herokuapp.com/api/registration/', creds)
+    .post('https://mud-js.herokuapp.com/api/registration/', creds)
     .then(res => {
       console.log('register', res);
       dispatch({ type: REGISTER_SUCCESS });
