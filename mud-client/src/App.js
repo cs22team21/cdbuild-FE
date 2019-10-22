@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import PrivateRoute from './helper/PrivateRoute';
-//  import the game path when it's created
+import Game from './components/Game/Game';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Switch>
         <Route path='/login' component={Login} />
         <Route path='/register' component={Register} />
-        {/* <PrivateRoute path='/' component={Game} /> */}
+        <PrivateRoute path='/' component={Game} />
       </Switch>
     </div>
   );

@@ -9,7 +9,7 @@ export const register = creds => dispatch => {
   return axios
     .post('https://lambda-mud-test.herokuapp.com/api/registration/', creds)
     .then(res => {
-      console.log(res);
+      console.log('register', res);
       dispatch({ type: REGISTER_SUCCESS });
     })
     .catch(err => {
