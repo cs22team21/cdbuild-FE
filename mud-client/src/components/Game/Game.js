@@ -40,7 +40,7 @@ const Game = props => {
   }
 
   console.log('user', user);
-//   const mapInfo = user ? user.room_id : 0;
+
   return (
     <React.Fragment>
       <div className="game-map">

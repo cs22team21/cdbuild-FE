@@ -45,6 +45,7 @@ const Map = props => {
   return (
     <div>
       <p>{rooms.rooms}</p>
+      <p>{grid}</p>
     </div>
   );
 };
