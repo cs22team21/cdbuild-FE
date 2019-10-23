@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Controls from './gameControls';
+import Map from './Map'
+// import Player from './Player';
 
 const Game = props => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     const auth = `Token ${localStorage.getItem("key")}`;
@@ -38,14 +40,18 @@ const Game = props => {
   }
 
   console.log('user', user);
-  const mapInfo = user ? user.room_id : 0;
+//   const mapInfo = user ? user.room_id : 0;
   return (
     <React.Fragment>
-      <div className="left">
+      <div className="game-map">
         <h2>Hello World</h2>
+        <Map logIn={props.logIn} backendUrl={props.backendUrl} />
       </div>
-      <div className="right">
-        {/* <Info user={user} /> */}
+      <div className="game-player">
+        <div>
+            <h3>{user.name}</h3>
+            <h4>{user.title}</h4>
+        </div>
         <Controls moveDirection={moveDirection} />
       </div>
     </React.Fragment>

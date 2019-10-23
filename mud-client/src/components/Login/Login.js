@@ -36,7 +36,7 @@ const Login = props => {
         .post(`${endpoint}`, creds, { "Content-Type": "application/json" })
         .then(res => {
           localStorage.setItem("key", res.data.key)
-          props.history.push('/login')
+          alert('Registration Successful!  Please login to continue')
         });
     } else {
       endpoint = `${props.backendUrl}/api/login/`;
@@ -52,7 +52,7 @@ const Login = props => {
         });
     }
   }
-  
+
   console.log(props);
 
   return (
