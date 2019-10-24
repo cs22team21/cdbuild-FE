@@ -8,11 +8,7 @@ import Game from "./components/Game/Game";
 //mud-js
 function App() {
   const [logIn, setLogIn] = useState(!!localStorage.getItem("key"));
-<<<<<<< HEAD
   const [backendUrl] = useState("https://mud-js.herokuapp.com");
-=======
-  const [backendUrl] = useState("https://lambda-mud-test.herokuapp.com");
->>>>>>> ec1251f7530b3ba6616f7569f2c3764edcc9cbc4
 
   useEffect(() => {
     if (localStorage.getItem("key")) {
