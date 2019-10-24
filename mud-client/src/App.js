@@ -4,9 +4,11 @@ import { Switch, Route } from 'react-router-dom';
 import Login from "./components/Login/Login";
 import Game from "./components/Game/Game";
 
+
+//mud-js
 function App() {
   const [logIn, setLogIn] = useState(!!localStorage.getItem("key"));
-  const [backendUrl] = useState("https://mud-js.herokuapp.com");
+  const [backendUrl] = useState("https://lambda-mud-test.herokuapp.com");
 
   useEffect(() => {
     if (localStorage.getItem("key")) {
