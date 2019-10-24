@@ -17,7 +17,7 @@ const Game = props => {
       }
     };
     console.log(options);
-    axios.get(`${props.backendUrl}/api/adv/init/`, options).then(res => {
+    axios.get(`${props.backendUrl}/api/adv/position/`, options).then(res => {
       setUser(res.data);
       console.log('resData', res.data)
     });
@@ -36,6 +36,7 @@ const Game = props => {
       .post(`${props.backendUrl}/api/adv/move/`, { direction }, options)
       .then(res => {
         setUser(res.data);
+        console.log(res.data)
       });
   }
 
@@ -44,8 +45,7 @@ const Game = props => {
   return (
     <React.Fragment>
       <div className="game-map">
-        <h2>Hello World</h2>
-        <Map logIn={props.logIn} backendUrl={props.backendUrl} />
+        <Map logIn={props.logIn} backendUrl={props.backendUrl} user={user} />
       </div>
       <div className="game-player">
         <div>
@@ -53,7 +53,6 @@ const Game = props => {
             <h4>Current Room:  {user.error_msg === "" ? user.title : `${user.error_msg} you are still in the ${user.title}`}</h4>
         </div>
         <Controls moveDirection={moveDirection} />
-      </div>
     </React.Fragment>
   );
 };

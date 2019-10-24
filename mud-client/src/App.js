@@ -29,12 +29,12 @@ function App() {
       <h2>SciFi Time</h2>
       <div className="container">
         <Switch>
-        <Route path = '/login' 
-        render={props => <Login {...props} backendUrl={backendUrl} logIn={logIn} setLocalKey={setLocalKey} />}
-        />
-        <Route path = '/game' 
-         render={props => <Game {...props} backendUrl={backendUrl} login={logIn}/>}
-         />
+          <Route path='/login'
+            render={props => <Login {...props} backendUrl={backendUrl} logIn={logIn} setLocalKey={setLocalKey} />}
+          />
+          <Route path='/game'
+            render={props => <Game {...props} backendUrl={backendUrl} login={logIn} />}
+          />
         </Switch>
       </div>
     </div>
