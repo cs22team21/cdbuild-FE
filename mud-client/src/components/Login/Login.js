@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
+import './login.scss';
 
 const Login = props => {
   const [username, setUsername] = useState("");
@@ -67,17 +68,17 @@ const Login = props => {
         <h1>{isRegister ? "Register" : "Login"}</h1>
 
         <form className="login-inputs" onSubmit={handleSubmit}>
-          <div>
-            <label>Username</label>
+          <div className='spacing'>
+            <label>Username:  </label>
             <input value={username} onChange={handleChange} name="username" />
           </div>
-          <div>
-            <label>Password</label>
+          <div className='spacing'>
+            <label>Password:  </label>
             <input value={password} onChange={handleChange} name="password" />
           </div>
           {isRegister && (
-            <div>
-              <label>Verify password</label>
+            <div className='spacing'>
+              <label>Verify password:  </label>
               <input
                 value={password1}
                 onChange={handleChange}
@@ -85,7 +86,9 @@ const Login = props => {
               />
             </div>
           )}
+          <div className='submit-button'>
           <button type="Submit">Submit</button>
+          </div>
         </form>
       </section>
     </React.Fragment>

@@ -24,6 +24,7 @@ const Map = props => {
 
   if (!grid || !props.user) return <div>Loading</div>
 
+
   return <Shape user={props.user} grid={grid} rooms={rooms} />
 }
 
