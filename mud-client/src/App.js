@@ -6,7 +6,7 @@ import Game from "./components/Game/Game";
 
 function App() {
   const [logIn, setLogIn] = useState(!!localStorage.getItem("key"));
-  const [backendUrl] = useState("http://localhost:8000");
+  const [backendUrl] = useState("https://mud-js.herokuapp.com");
 
   useEffect(() => {
     if (localStorage.getItem("key")) {
