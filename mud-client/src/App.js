@@ -6,7 +6,7 @@ import Game from "./components/Game/Game";
 
 function App() {
   const [logIn, setLogIn] = useState(!!localStorage.getItem("key"));
-  const [backendUrl] = useState("https://mud-js.herokuapp.com");
+  const [backendUrl] = useState("http://localhost:8000");
 
   useEffect(() => {
     if (localStorage.getItem("key")) {
@@ -27,12 +27,12 @@ function App() {
       <h2>SciFi Time</h2>
       <div className="container">
         <Switch>
-        <Route path = '/login' 
-        render={props => <Login {...props} backendUrl={backendUrl} logIn={logIn} setLocalKey={setLocalKey} />}
-        />
-        <Route path = '/game' 
-         render={props => <Game {...props} backendUrl={backendUrl} login={logIn}/>}
-         />
+          <Route path='/login'
+            render={props => <Login {...props} backendUrl={backendUrl} logIn={logIn} setLocalKey={setLocalKey} />}
+          />
+          <Route path='/game'
+            render={props => <Game {...props} backendUrl={backendUrl} login={logIn} />}
+          />
         </Switch>
       </div>
     </div>
