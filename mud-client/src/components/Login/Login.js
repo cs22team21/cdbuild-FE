@@ -74,7 +74,7 @@ const Login = props => {
           </div>
           <div className='spacing'>
             <label>Password:  </label>
-            <input value={password} onChange={handleChange} name="password" />
+            <input value={password} onChange={handleChange} name="password" type="password" />
           </div>
           {isRegister && (
             <div className='spacing'>
@@ -83,11 +83,12 @@ const Login = props => {
                 value={password1}
                 onChange={handleChange}
                 name="password1"
+                type="password"
               />
             </div>
           )}
           <div className='submit-button'>
-          <button type="Submit">Submit</button>
+            <button type="Submit">Submit</button>
           </div>
         </form>
       </section>

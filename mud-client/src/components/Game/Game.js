@@ -49,10 +49,11 @@ const Game = props => {
       </div>
       <div className="game-player">
         <div>
-            <h3>User:  {user.name}</h3>
-            <h4>Current Room:  {user.error_msg === "" ? user.title : `${user.error_msg} you are still in the ${user.title}`}</h4>
+          <h3>User:  {user.name}</h3>
+          <h4>Current Room:  {user.error_msg === "" ? user.title : `${user.error_msg} you are still in the ${user.title}`}</h4>
         </div>
         <Controls moveDirection={moveDirection} />
+      </div>
     </React.Fragment>
   );
 };
