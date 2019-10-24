@@ -14,6 +14,7 @@ const Map = props => {
       }
     };
     axios.get(`${props.backendUrl}/api/adv/rooms/`, options).then(res => {
+        
       setRooms(res.data);
     });
   }, [props.logIn, props.backendUrl]);
@@ -37,14 +38,31 @@ const Map = props => {
   }
 
   function cell(x, y) {
-    return x + 1 + ":" + (y + 1);
+    return x + 1 + ":" + (y + 1) + " ";
+  }
+
+  for(let key in rooms) {
+      console.log(`key: ${key}, value: ${rooms[key]}`)
   }
 
   console.log("rooms", rooms);
 
   return (
     <div>
-      <p>{rooms.rooms}</p>
+      <div>
+        <p>{rooms.rooms}</p>
+        <p>{Object.keys(rooms)}</p>
+
+        <p>{Object.values(rooms)}</p>
+
+      </div>
+      {/* <div>
+        {rooms.map(row => (
+          <div key={row.pk}>
+            <h2>{row.fields}</h2>
+          </div>
+        ))}
+      </div> */}
       <p>{grid}</p>
     </div>
   );
