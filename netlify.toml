@@ -1,0 +1,9 @@
+[build]
+  base    = "mud-client/"
+  publish = "mud-client/build"
+  command = "npm run build" 
+
+[[redirects]]
+  from = "/*"
+  to = "/login.html"
+  status = 200
