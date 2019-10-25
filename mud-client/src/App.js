@@ -4,6 +4,8 @@ import { Switch, Route } from 'react-router-dom';
 import Login from "./components/Login/Login";
 import Game from "./components/Game/Game";
 
+
+//mud-js
 function App() {
   const [logIn, setLogIn] = useState(!!localStorage.getItem("key"));
   const [backendUrl] = useState("https://mud-js.herokuapp.com");
@@ -24,15 +26,15 @@ function App() {
   }
   return (
     <div className="App">
-      <h2>SciFi Time</h2>
+      {/* <h2>SciFi Time</h2> */}
       <div className="container">
         <Switch>
-        <Route path = '/login' 
-        render={props => <Login {...props} backendUrl={backendUrl} logIn={logIn} setLocalKey={setLocalKey} />}
-        />
-        <Route path = '/game' 
-         render={props => <Game {...props} backendUrl={backendUrl} login={logIn}/>}
-         />
+          <Route exact path='/'
+            render={props => <Login {...props} backendUrl={backendUrl} logIn={logIn} setLocalKey={setLocalKey} />}
+          />
+          <Route exact path='/game'
+            render={props => <Game {...props} backendUrl={backendUrl} login={logIn} />}
+          />
         </Switch>
       </div>
     </div>

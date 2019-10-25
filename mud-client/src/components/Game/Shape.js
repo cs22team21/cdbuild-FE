@@ -20,8 +20,13 @@ const Shape = props => {
                                 key={room.id}
                                 x={room[1]}
                                 y={room[2]}
+<<<<<<< HEAD
                                 height={10}
                                 width={10}
+=======
+                                height={15}
+                                width={15}
+>>>>>>> origin/master
                                 fill={room[0] === props.user.id ? "black" : "green"}
                                 onClick={() => console.log(room[0])} />
                             <Line stroke="black" points={[room[3], room[4], room[5], room[6]]} />
