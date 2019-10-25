@@ -11,16 +11,17 @@ const Shape = props => {
     }
 
     return (
-        <Stage width={800} height={800}>
+        <Stage width={1000} height={600}>
             <Layer>
                 {props.grid.map(room => {
                     return (
                         <>
                             <Rect
+                                key={room.id}
                                 x={room[1]}
                                 y={room[2]}
-                                height={20}
-                                width={20}
+                                height={15}
+                                width={15}
                                 fill={room[0] === props.user.id ? "black" : "green"}
                                 onClick={() => console.log(room[0])} />
                             <Line stroke="black" points={[room[3], room[4], room[5], room[6]]} />
