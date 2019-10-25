@@ -26,10 +26,10 @@ function App() {
   }
   return (
     <div className="App">
-      <h2>SciFi Time</h2>
+      {/* <h2>SciFi Time</h2> */}
       <div className="container">
         <Switch>
-          <Route exact path='/login'
+          <Route exact path='/'
             render={props => <Login {...props} backendUrl={backendUrl} logIn={logIn} setLocalKey={setLocalKey} />}
           />
           <Route exact path='/game'
