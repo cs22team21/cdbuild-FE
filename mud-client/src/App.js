@@ -29,10 +29,10 @@ function App() {
       <h2>SciFi Time</h2>
       <div className="container">
         <Switch>
-          <Route path='/login'
+          <Route exact path='/login'
             render={props => <Login {...props} backendUrl={backendUrl} logIn={logIn} setLocalKey={setLocalKey} />}
           />
-          <Route path='/game'
+          <Route exact path='/game'
             render={props => <Game {...props} backendUrl={backendUrl} login={logIn} />}
           />
         </Switch>
