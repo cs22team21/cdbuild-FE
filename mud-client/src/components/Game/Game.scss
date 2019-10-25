@@ -1,9 +1,13 @@
-.game-wrapper{
-    padding-top: 25px;
-    display: flex;
-    flex-direction: column;
-    width: 80%;
-    margin: auto;
-    align-items: center;
-    border: 3px solid grey;
+.game-wrapper {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+  align-items: center;
+  border: 3px solid grey;
+}
+
+.konvajs-content {
+  margin-left: 25%;
 }
