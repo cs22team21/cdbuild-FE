@@ -1,6 +1,6 @@
 [build]
   base    = "mud-client/"
-  publish = "mud-client/build"
+  publish = "build"
   command = "npm run build" 
 
 [[redirects]]
