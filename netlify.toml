@@ -4,6 +4,6 @@
   command = "npm run build" 
 
 [[redirects]]
-  from = "/"
-  to = "/login.html"
+  from = "/*"
+  to = "/index.html"
   status = 200
